@@ -22,26 +22,32 @@ interface Usertask {
   styleUrls: ['./usertasks.component.css']
 })
 export class UsertasksComponent implements OnInit {
-  form!: FormGroup;
+  
   loading = false;
   submitted = false;
   selected = 'option2';
-
-  constructor(private formBuilder: FormBuilder) { }
+value:any;
+  constructor() { }
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
-  });
+  //   this.form = this.formBuilder.group({
+  //     task: ['', Validators.required],
+  //     password: ['', Validators.required]
+  // });
   }
-  currentval ="";
+  currentval:any;
   
-  getVal(val :any){
+  getVal(val :any){   
+    
     this.currentval = val
+
+    console.log(this.currentval, val);
+
+    
+    var z = val
   }
  
-  get f() { return this.form.controls; }
+  
 
   tasks:Usertask[] = usertasks.Tasks;
   userdd:Users[] = usertasks.Users;

@@ -11,22 +11,30 @@
   </div>
 </div>
 
-<div *ngFor="let m of tasks" style="padding-top: 10px;">
+<!-- <div *ngFor="let m of tasks" style="padding-top: 10px;">
   <mat-card style="background-color: rgb(167, 167, 248);width: 15%;float:right;" *ngIf="m.Important == true">
     {{m.Task}}</mat-card>
-  </div>
+  </div> -->
+  <table class="table table-striped" id="users" style="margin-top: 10px;">
+    
+    <tbody style="background-color: rgb(167, 167, 248);width: 12%;float:right;">
+      <tr *ngFor="let m of tasks">
+        <td *ngIf="m.Important == true" >{{m.Task}}</td>
+       </tr>
+  </tbody>
+  </table>
 <div class="title_box" style="margin:90px;">
   <div id="title">User Tasks</div>
  
   <div style="padding-left:10px;padding-right: 10px;">
     <div class="container mt-3">
-      <form [formGroup]="form">
+      <form>
         <div class="row">
           <div class="col">
             <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Task Description" name="task" maxlength="200">
+              <input type="text" class="form-control" placeholder="Task Description" name="task" maxlength="200" [(ngModel)]= "value" (keypress)="getVal(value)">
               <small class="w-100"><span>Task</span>
-                <span style="margin-left: 98px;">0/200</span></small>
+                <span style="margin-left: 98px;">{{currentval}}/200</span></small>
 
             </div>
           </div>
@@ -97,5 +105,14 @@
 
       </tbody>
     </table>
+<!-- 
+    <mat-form-field appearance="fill"> 
+      <mat-label>Favorite food</mat-label> 
+      <mat-select> 
+        <mat-option *ngFor="let m of tasks"> 
+          {{m.User}} 
+        </mat-option> 
+      </mat-select> 
+    </mat-form-field> -->
   </div>
 </div>

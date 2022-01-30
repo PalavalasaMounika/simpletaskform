@@ -11,8 +11,8 @@ import {MatCardModule} from '@angular/material/card';
     UsertasksComponent
   ],
   imports: [
-    BrowserModule,
-    ReactiveFormsModule,MatSelectModule,FormsModule,MatCardModule
+    BrowserModule,MatCardModule,MatSelectModule,
+    ReactiveFormsModule,FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
