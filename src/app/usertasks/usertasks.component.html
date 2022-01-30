@@ -1,0 +1,101 @@
+<div class="topnav">
+  <div class="row">
+    <div class="col-2">
+      <span class="dot"></span>&nbsp;
+      <span class="dot"></span>&nbsp;
+      <span class="dot"></span>&nbsp;
+    </div>
+    <div class="col-10">
+      <p style="color: #c9c7c7;padding-left:350px;padding-top: 5px;">Task Application</p>
+    </div>
+  </div>
+</div>
+
+<div *ngFor="let m of tasks" style="padding-top: 10px;">
+  <mat-card style="background-color: rgb(167, 167, 248);width: 15%;float:right;" *ngIf="m.Important == true">
+    {{m.Task}}</mat-card>
+  </div>
+<div class="title_box" style="margin:90px;">
+  <div id="title">User Tasks</div>
+ 
+  <div style="padding-left:10px;padding-right: 10px;">
+    <div class="container mt-3">
+      <form [formGroup]="form">
+        <div class="row">
+          <div class="col">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Task Description" name="task" maxlength="200">
+              <small class="w-100"><span>Task</span>
+                <span style="margin-left: 98px;">0/200</span></small>
+
+            </div>
+          </div>
+          <div class="col">
+            <div class="input-group mb-3">
+              <input type="date" class="form-control" placeholder="Expiry Date" name="date">
+              <small class="w-100">Expiry Date
+              </small>
+
+            </div>
+          </div>
+          <div class="col">
+            <div class="input-group mb-3">
+              <select class="form-control">
+                <option *ngFor="let i of userdd">{{i}}</option>
+              </select>
+              <small class="w-100">Users
+              </small>
+
+            </div>
+          </div>
+          <div class="col">
+
+            <div class="input-group mb-3">
+              <i class="fas fa-flag"></i>
+
+              <small class="w-100">Important</small>
+            </div>
+          </div>
+          <div class="col">
+
+            <div class="input-group mb-3">
+              <button>
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <hr>
+    <br>
+    <table class="table table-striped" id="users">
+      <thead>
+        <tr>
+          <th style="width: 30%">Task</th>
+          <th style="width: 30%">Expiry Date</th>
+          <th style="width: 30%">Users</th>
+          <th style="width: 10%">Important</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let m of tasks">
+          <td>{{m.Task}}</td>
+          <td>{{m.Expiry_date}}</td>
+          <td><select class="form-control">
+              <option *ngFor="let i of userdd">{{m.User}}</option>
+            </select></td>
+          <td>
+
+            <i class="fas fa-flag" *ngIf="m.Important == true"></i>
+            <i class="far fa-flag" *ngIf="m.Important == false"></i>
+
+          </td>
+          <td><i style="font-size:24px" class="fa">&#xf056;</i></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
